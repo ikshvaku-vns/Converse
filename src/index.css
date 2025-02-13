@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+a.active button {
+  background-color: #4391a5;
+  color: #c8c8c8;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
