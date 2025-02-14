@@ -244,19 +244,19 @@ export default function Cluster1() {
           }`}
         >
           <button
-            className="bg-[#333333] text-3xl text-white px-2 py-5 rounded-3xl border border-white hover:bg-[#444444]"
+            className="bg-[#333333] text-3xl text-white px-2 py-5 rounded-3xl border border-white hover:bg-[#444444] cursor-pointer"
             onClick={moveLeft}
           >
             ＜
           </button>
         </div>
         <div
-          className={`fixed right-60  bottom-1/3 z-50 flex justify-between px-10 ${
+          className={`fixed right-60  bottom-1/3 z-50 flex justify-between px-10  ${
             opacity ? "opacity-15" : ""
           }`}
         >
           <button
-            className="bg-[#333333] text-3xl text-white px-2 py-5 rounded-3xl border border-white hover:bg-[#444444]"
+            className="bg-[#333333] text-3xl text-white px-2 py-5 rounded-3xl border border-white hover:bg-[#444444] cursor-pointer"
             onClick={moveRight}
           >
             ＞

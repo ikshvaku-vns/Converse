@@ -38,6 +38,7 @@ const BuildingMap = () => {
             arrow={true}
           >
             <Link
+              className="focus:outline-none"
               to={
                 ["T1", "T2"].includes(towerId)
                   ? `/cluster1`
@@ -50,7 +51,7 @@ const BuildingMap = () => {
             >
               <path
                 d={path}
-                className="transition-all duration-300 cursor-pointer"
+                className="transition-all duration-300 cursor-pointer "
                 fill={
                   hoveredTower === towerId
                     ? "rgba(0, 255, 0, 0.3)"

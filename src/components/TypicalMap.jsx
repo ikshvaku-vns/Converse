@@ -59,6 +59,7 @@ export default function TypicalMap() {
           return (
             <Tippy
               key={id}
+              theme="custom"
               content={
                 <div className="text-[#c8c8c8] p-2 flex flex-col gap-5">
                   <div className="flex items-center gap-1">
@@ -68,16 +69,29 @@ export default function TypicalMap() {
                     </h1>
                   </div>
                   <div>{unit_type}</div>
-                  <div>{status}</div>
+                  <div
+                    style={{
+                      color:
+                        status === "sold"
+                          ? "red"
+                          : status === "available"
+                          ? "green"
+                          : status === "hold"
+                          ? "#06B6D480"
+                          : "gray",
+                    }}
+                  >
+                    {status}
+                  </div>
+                  {/* <div>{status}</div> */}
 
                   <div>{area} Sq.Ft</div>
                 </div>
               }
               placement="right"
-              theme="light"
               arrow={true}
             >
-              <Link to={`/cluster1/unit/${id}`}>
+              <Link className="focus:outline-none" to={`/cluster1/unit/${id}`}>
                 <path
                   key={id}
                   id={id.slice(-1)}

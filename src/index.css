@@ -13,3 +13,12 @@ a.active button {
     transform: translateY(0);
   }
 }
+
+.tippy-box[data-theme="custom"] {
+  background-color: #333333; /* or any color you want */
+  opacity: 90%;
+}
+
+.tippy-box[data-theme="custom2"] {
+  background-color: #4391a5; /* or any color you want */
+}

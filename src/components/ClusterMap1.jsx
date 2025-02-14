@@ -13,6 +13,7 @@ function ClusterMap1() {
   const [hoveredPath, setHoveredPath] = useState(null);
   const { clusterCount } = useContext(BuildingContext);
   const [floorData, setFloorData] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
 
   const getPostData = async () => {
     try {
@@ -86,36 +87,52 @@ function ClusterMap1() {
           return (
             <Tippy
               duration={[200, null]}
+              offset={[0, 45]}
+              theme="custom"
               content={
-                <div className="text-[#c8c8c8] p-2 flex flex-col gap-5">
+                <div className="text-[#c8c8c8] flex flex-col gap-2 p-1 w-50">
                   <div className="flex items-center gap-1">
                     <FontAwesomeIcon className="text-lg" icon={faLocationDot} />
                     <h1 className="text-[#4391a5] text-lg">
-                      {parentIds.tower.split("_")[0]}, Floor
+                      {parentIds.tower.split("_")[0]} Tower , Floor
                       {parentIds.floor.split("_")[0]}
                     </h1>
                   </div>
-                  <div>{stats.totalUnits} Apartments</div>
-                  <div>
+                  <div className="w-full bg-black rounded p-2">
+                    {stats.totalUnits} Apartments
+                  </div>
+                  <div className="w-full bg-black rounded p-2">
                     {stats.soldUnits} Sold, {stats.availableUnits} Available
                   </div>
-                  <div>Unit Types: {stats.unitTypes.join(", ")}</div>
+                  <div className="w-full bg-black rounded p-2">
+                    Unit Types: {stats.unitTypes[0]}
+                  </div>
                   {stats.areaRange && (
-                    <div>
+                    <div className="w-full bg-black rounded p-2">
                       {stats.areaRange.min}-{stats.areaRange.max} Sq.Ft
                     </div>
                   )}
                 </div>
               }
               placement="left"
+              arrow={false}
             >
-              <Link
-                to={`/cluster1/${parentIds.tower.split("_")[0]}/floor/${
-                  parentIds.floor.split("_")[0]
-                }`}
+              <Tippy
+                duration={[200, null]}
+                theme="custom2"
+                content={<div>{parentIds.floor.split("_")[0]}</div>}
+                placement="left"
+                arrow={false}
               >
-                {clonedPath}
-              </Link>
+                <Link
+                  className="focus:outline-none"
+                  to={`/cluster1/${parentIds.tower.split("_")[0]}/floor/${
+                    parentIds.floor.split("_")[0]
+                  }`}
+                >
+                  {clonedPath}
+                </Link>
+              </Tippy>
             </Tippy>
           );
         }
