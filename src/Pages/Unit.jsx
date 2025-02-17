@@ -12,6 +12,7 @@ export default function Unit() {
   const [opacity, setOpacity] = useState(false);
   const [close, setClose] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const params = useParams();
 
   const [unitData, setUnitData] = useState([]);
@@ -64,27 +65,40 @@ export default function Unit() {
         {/* Header Section */}
         <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 px-8 pt-7">
           <div className="flex">
-            <div className="w-110 h-12 bg-[#333333]/90 flex items-center gap-6 rounded-l-lg p-2 pr-0">
-              <div className="w-[33%] h-[80%] bg-white flex justify-center rounded-lg overflow-hidden">
+            <div
+              className={`${
+                isVisible ? "w-80" : "w-130"
+              } h-12 bg-[#333333]/90 flex items-center gap-6 rounded-l-lg p-2 pr-0 transition-all duration-500`}
+            >
+              <div className="w-[33%] h-[83%] bg-white flex justify-center rounded-lg overflow-hidden">
                 <img
                   src={flatImages.logo}
                   alt=""
                   className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <div className="flex items-center p-0 ">
-                <div className="bg-[#595959] flex justify-center items-center rounded-lg px-2 py-0 w-24 h-7">
-                  <h1 className="text-sm text-[#bdbdbd]">Sector 66</h1>
+              {!isVisible && (
+                <div className="flex items-center p-0 ">
+                  <div className="bg-[#595959] flex justify-center items-center rounded-lg px-2 py-0 w-24 h-7">
+                    <h1 className="text-sm text-[#bdbdbd]">Sector 66</h1>
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="flex items-center p-0 ">
-                <div className="bg-white flex justify-center items-center rounded-lg px-2 py-0 w-24 h-7">
-                  <h1 className="text-sm">Cluster1</h1>
+                <div className="bg-white flex justify-center items-center rounded-lg px-2 py-0 w-44 h-7">
+                  <h1 className="text-sm">
+                    Apartment {params.Id.replace(/^t(\d+)_(\d+)$/, "T$1-$2")}
+                  </h1>
                 </div>
               </div>
             </div>
             <div className="w-10 h-12 bg-[#595959]/95 flex justify-center items-center">
-              <span className="text-white text-3xl">＞</span>
+              <span
+                onClick={() => setIsVisible(!isVisible)}
+                className="text-white text-3xl cursor-pointer"
+              >
+                {isVisible ? "＞" : " ＜"}
+              </span>
             </div>
           </div>
         </div>
