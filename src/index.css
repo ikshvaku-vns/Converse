@@ -22,3 +22,9 @@ a.active button {
 .tippy-box[data-theme="custom2"] {
   background-color: #4391a5; /* or any color you want */
 }
+
+div.header-button {
+  background-color: #595959;
+
+  opacity: 95%;
+}

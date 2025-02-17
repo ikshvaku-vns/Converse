@@ -92,7 +92,7 @@ export default function Unit() {
                 </div>
               </div>
             </div>
-            <div className="w-10 h-12 bg-[#595959]/95 flex justify-center items-center">
+            <div className="w-10 h-12 header-button flex justify-center items-center">
               <span
                 onClick={() => setIsVisible(!isVisible)}
                 className="text-white text-3xl cursor-pointer"

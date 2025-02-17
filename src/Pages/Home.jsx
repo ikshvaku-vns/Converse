@@ -49,7 +49,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="w-10 h-15 bg-[#595959]/95 flex justify-center items-center">
+            <div className="w-10 h-15 header-button flex justify-center items-center">
               <span className="text-white text-3xl">＞</span>
             </div>
           </div>
